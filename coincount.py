@@ -41,7 +41,16 @@ bagweight = {
     "1p": 356,
 }
 
+volunteer = {
+    "name1": 0,
+    "total1": 0,
+    "totalbags1": 0,
+    "accuracy1": 0,
+}
+
 name=input("What is your name? ")
+
+volunteer.update({"name1":name})
 
 bags = int(input("How many bags do you have to input? "))
 
@@ -68,13 +77,17 @@ while bags > 0:
         print("you need to remove",weight - actual_weight,"g")
         accuracy = totalbags - 1
 
-
+accuracy
         
 
 show = input("Would you like to show your total of bags, total value and accuracy? y/n ")
 if show == ("y"):
         print("Your total bags is now",totalbags)
         print("your total for",name, "is now £",total)
-        print("Your accuracy is",accuracy, "/", totalbags) 
-        
+        print("You have inputed ",accuracy, "/", totalbags,"total bags wrong.") 
 
+volunteer.update({"totalbags1":totalbags})
+volunteer.update({"total1":total})
+volunteer.update({"accuracy1":accuracy})
+
+print(volunteer)
