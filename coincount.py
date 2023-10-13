@@ -1,5 +1,11 @@
+#need to do file saving and calling 
+
+
+
+accuracy = 0
 bags = 0
 total = 0
+totalbags = 0
 coinweights = {
     "£2": 12.00,
     "£1": 8.75,
@@ -35,35 +41,40 @@ bagweight = {
     "1p": 356,
 }
 
-
 name=input("What is your name? ")
 
-coin=input("What coin type do you have? ")
+bags = int(input("How many bags do you have to input? "))
 
-weight=int(input("How much does the bag weigh "))
-#need to make it repeatable 
+while bags > 0:
+    bags = bags - 1
+    coin=input("What coin type do you have? ")
+    weight=int(input("How much does the bag weigh? "))
 
-if coin not in coinweights:
-    print("Invaild coin type")
-else:
-    print("Valid coin type")
+        
+    if coin not in coinweights:
+        print("Invaild coin type")
+    else:
+        print("Valid coin type")
 
-actual_weight = bagweight[coin]
+    actual_weight = bagweight[coin]
 
-if actual_weight > weight:
-    print("you need to add ",actual_weight - weight,"g")
-if actual_weight < weight:
-    print("you need to remove",weight - actual_weight,"g")
-#need to add so u cant input words 
+    total += bagvalue[coin]
+    totalbags = totalbags + 1
+
+    if actual_weight > weight:
+        print("you need to add ",actual_weight - weight,"g")
+        accuracy = totalbags - 1
+    if actual_weight < weight:
+        print("you need to remove",weight - actual_weight,"g")
+        accuracy = totalbags - 1
 
 
-show = input("Would you like to show your total of bags and total value? y/n ")
+        
+
+show = input("Would you like to show your total of bags, total value and accuracy? y/n ")
 if show == ("y"):
-    if actual_weight == weight: 
-        bags += 1
-        print("Your total bags is now",bags)
-
-    if actual_weight == weight:
-        total += bagvalue[coin]
-        print ("your total for",name, "is now £",total)
+        print("Your total bags is now",totalbags)
+        print("your total for",name, "is now £",total)
+        print("Your accuracy is",accuracy, "/", totalbags) 
+        
 
