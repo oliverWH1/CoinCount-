@@ -1,3 +1,5 @@
+bags = 0
+total = 0
 coinweights = {
     "£2": 12.00,
     "£1": 8.75,
@@ -34,17 +36,34 @@ bagweight = {
 }
 
 
-Name=input("What is your name? ")
+name=input("What is your name? ")
 
 coin=input("What coin type do you have? ")
 
 weight=int(input("How much does the bag weigh "))
-
+#need to make it repeatable 
 
 if coin not in coinweights:
     print("Invaild coin type")
 else:
     print("Valid coin type")
 
-if weight not in bagweight:
-    print("yes")
+actual_weight = bagweight[coin]
+
+if actual_weight > weight:
+    print("you need to add ",actual_weight - weight,"g")
+if actual_weight < weight:
+    print("you need to remove",weight - actual_weight,"g")
+#need to add so u cant input words 
+
+
+show = input("Would you like to show your total of bags and total value? y/n ")
+if show == ("y"):
+    if actual_weight == weight: 
+        bags += 1
+        print("Your total bags is now",bags)
+
+    if actual_weight == weight:
+        total += bagvalue[coin]
+        print ("your total for",name, "is now £",total)
+
