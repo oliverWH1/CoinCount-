@@ -1,0 +1,18 @@
+import json 
+
+data = {
+  "Name1": "",
+  "Total_Count" : "",
+  "Accuracy" : ""
+}
+
+Name = input("Name: ")
+file = open("test.json", "+r")
+texts = json.load(file)
+if Name in texts:
+    Total_Count = (texts[Name]["Total_Count"])
+    Accuracy = (texts[Name]["Accuracy"])
+    data.update({"Name1":Name})
+    data.update({"Total_Count": Total_Count})
+    data.update({"Accuracy": Accuracy})
+print(data)
