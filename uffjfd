@@ -1,10 +1,21 @@
 import json 
 
 data = {
+
   "Name1": "",
   "Total_Count" : "",
   "Accuracy" : ""
 }
+
+{
+    "Tom": {
+        "Total_Counted": 123,
+        "Accuracy": 50
+    }
+}
+
+
+
 
 Name = input("Name: ")
 file = open("test.json", "+r")
@@ -15,4 +26,13 @@ if Name in texts:
     data.update({"Name1":Name})
     data.update({"Total_Count": Total_Count})
     data.update({"Accuracy": Accuracy})
+elif Name not in tests: 
+    with open("test.json","w")
+    
+
+
+
+
+
+
 print(data)
